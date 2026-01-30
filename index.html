@@ -1,43 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Second Page</title>
+  <title>my og 💕</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #ffe0e0;
       text-align: center;
-      padding: 50px;
-      color: #333;
+      background: linear-gradient(135deg, #ffd6e8, #e6ccff, #ffffff);
+      padding: 40px;
+      color: #5a4a6a;
     }
+
+    .box {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      max-width: 450px;
+      margin: auto;
+    }
+
     h1 {
-      font-size: 28px;
+      font-size: 32px;
+      margin-bottom: 10px;
     }
-    p {
-      font-size: 18px;
+
+    .question {
+      margin-top: 22px;
     }
+
+    button {
+      margin: 8px;
+      padding: 10px 16px;
+      border-radius: 25px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      background: #ff9ecf;
+      color: white;
+      transition: all 0.25s ease;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background: #ff7abf;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 17px;
+      font-weight: bold;
+      min-height: 40px;
+    }
+
+    .right { color: #ff4d88; }
+    .wrong { color: #666; }
+
     a {
       display: block;
-      margin-top: 20px;
-      color: blue;
+      margin-top: 25px;
       text-decoration: none;
-    }
-    button {
-      margin-top: 20px;
-      padding: 10px 15px;
-      font-size: 16px;
-      cursor: pointer;
+      color: #a066cc;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
 
-  <h1>This is my second page web ✨</h1>
-  <p>You're the only OG in my life ❤️</p>
+  <div class="box">
+    <h1>my og 🫶</h1>
 
-  <button onclick="alert('You clicked the button! 🎉')">Click Me</button>
+    <div class="question">
+      <p>1. Who do I annoy the most but still love? 😏</p>
+      <button onclick="right()">You 😂</button>
+      <button onclick="wrong()">The neighbor</button>
+    </div>
 
-  <a href="index.html">⬅ Go Back Home</a>
+    <div class="question">
+      <p>2. Who gets my soft side? 🥺</p>
+      <button onclick="right()">You 💞</button>
+      <button onclick="wrong()">Nobody</button>
+    </div>
+
+    <div class="question">
+      <p>3. Who is this page for? 👀</p>
+      <button onclick="right()">You 😤</button>
+      <button onclick="wrong()">Wrong person</button>
+    </div>
+
+    <p id="result"></p>
+
+    <a href="index.html">⬅ Back Home</a>
+  </div>
+
+  <script>
+    function right() {
+      let r = document.getElementById("result");
+      r.className = "right";
+      r.innerHTML = "my og ❤️🫣💋";
+    }
+
+    function wrong() {
+      let r = document.getElementById("result");
+      r.className = "wrong";
+      r.innerHTML = "try again 😝";
+    }
+  </script>
 
 </body>
 </html>
