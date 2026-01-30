@@ -109,3 +109,139 @@
 
 </body>
 </html>
+<a href="page2.html">
+  <button>Open Couples Quiz 💘</button>
+</a>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>my og 💕</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffd6e8, #e6ccff, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #5a4a6a;
+      text-align: center;
+    }
+
+    .container {
+      width: 95%;
+      max-width: 500px;
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    h1 { font-size: 26px; }
+
+    .question { margin: 14px 0; }
+
+    button {
+      margin: 5px;
+      padding: 7px 12px;
+      border-radius: 20px;
+      border: none;
+      background: #ff9ecf;
+      color: white;
+      cursor: pointer;
+      font-size: 13px;
+      transition: 0.2s;
+    }
+
+    button:hover { transform: scale(1.1); }
+
+    #result {
+      margin-top: 15px;
+      font-size: 17px;
+      font-weight: bold;
+      min-height: 40px;
+    }
+
+    .cute { color: #ff4d88; }
+    .wrong { color: #555; }
+
+    #final {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>my og 🫶 Couples Quiz</h1>
+
+    <div class="question">Who made the first move?</div>
+    <button onclick="answer(true)">Me 😌</button>
+    <button onclick="answer(false)">You 😏</button>
+
+    <div class="question">Who said "I love you" first?</div>
+    <button onclick="answer(true)">Me 💞</button>
+    <button onclick="answer(false)">You 😶</button>
+
+    <div class="question">Who is more annoying?</div>
+    <button onclick="answer(false)">Me 😂</button>
+    <button onclick="answer(true)">You 😈</button>
+
+    <div class="question">Who loves more?</div>
+    <button onclick="answer(true)">Me 💖</button>
+    <button onclick="answer(false)">You</button>
+
+    <div class="question">Who fell first?</div>
+    <button onclick="answer(true)">Me 🫣</button>
+    <button onclick="answer(false)">You</button>
+
+    <div class="question">Who is the better kisser?</div>
+    <button onclick="answer(true)">Me 😘</button>
+    <button onclick="answer(false)">You</button>
+
+    <div class="question">Who eats more?</div>
+    <button onclick="answer(false)">Me 🍔</button>
+    <button onclick="answer(true)">You</button>
+
+    <p id="result"></p>
+    <p id="final"></p>
+
+    <button onclick="showFinal()">See Result 💌</button>
+  </div>
+
+  <script>
+    let score = 0;
+    let total = 7;
+
+    function answer(correct) {
+      let r = document.getElementById("result");
+
+      if (correct) {
+        score++;
+        r.className = "cute";
+        r.innerHTML = "Awww correct 💖";
+      } else {
+        r.className = "wrong";
+        r.innerHTML = "Wrong 😂 noted!";
+      }
+    }
+
+    function showFinal() {
+      let f = document.getElementById("final");
+
+      if (score === total) {
+        f.innerHTML = "🎉 PERFECT SCORE!! Certified MY OG ❤️🫣💋✨ Surprise unlocked!";
+        document.body.style.background = "linear-gradient(135deg,#ff9ecf,#ffd6e8,#e6ccff)";
+      } else {
+        f.innerHTML = "Score: " + score + "/" + total + " 😏 Better luck next time… guess you're not the OG yet 😂";
+      }
+    }
+  </script>
+</body>
+</html>
