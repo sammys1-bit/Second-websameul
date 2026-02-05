@@ -2,144 +2,170 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Will You Be My Valentine 💗</title>
+  <title>Will You Be My Valentine 💖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
       margin: 0;
-      font-family: "Comic Sans MS", "Poppins", cursive;
-      background: linear-gradient(135deg, #ffd6e8, #f3e5ff, #ffffff);
+      font-family: "Poppins", Arial, sans-serif;
+      background: linear-gradient(135deg, #ffd6e8, #f3e5ff);
       min-height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      padding: 20px;
     }
 
     .card {
-      background: #ffffff;
-      width: 95%;
+      background: #fff;
+      width: 100%;
       max-width: 420px;
-      border-radius: 20px;
+      border-radius: 25px;
       padding: 20px;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
     }
 
-    h1 {
+    h2 {
       color: #d63384;
       margin-bottom: 10px;
     }
 
-    p {
-      color: #555;
-      font-size: 15px;
-    }
-
     img {
       width: 100%;
-      border-radius: 15px;
-      margin: 10px 0;
-    }
-
-    .buttons {
-      margin-top: 20px;
-    }
-
-    button {
-      padding: 10px 18px;
-      border: none;
       border-radius: 20px;
-      font-size: 16px;
+      margin: 15px 0;
+    }
+
+    /* BUZZER BUTTONS */
+    .buzzer {
+      width: 140px;
+      height: 70px;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 50px;
       cursor: pointer;
-      margin: 8px;
-    }
-
-    .yes {
-      background: #ff5fa2;
+      margin: 12px;
       color: white;
+      box-shadow: 0 8px rgba(0,0,0,0.3);
+      transition: all 0.1s ease;
     }
 
-    .no {
-      background: #ccc;
+    .buzzer:active {
+      transform: translateY(6px);
+      box-shadow: 0 2px rgba(0,0,0,0.3);
+    }
+
+    .yes-btn {
+      background: #ff4d6d;
+    }
+
+    .no-btn {
+      background: #6c757d;
     }
 
     .hidden {
       display: none;
     }
 
-    .caption {
+    .letter-box {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .open-btn {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ff7aa2;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
       font-size: 16px;
-      margin-top: 10px;
-      color: #c9184a;
+      cursor: pointer;
+    }
+
+    .letter-text {
+      background: #fff0f5;
+      border-radius: 20px;
+      padding: 20px;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #444;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- MAIN CARD -->
-  <div class="card" id="mainCard">
-    <h1>Will you be my Valentine? 💘</h1>
+  <!-- PAGE 1 -->
+  <div class="card" id="page1">
+    <h2>Will you be my Valentine? 💘</h2>
+    <img src="rosecat.jpg" alt="Cat with rose">
 
-    <img src="bouquet.jpg" alt="bouquet">
+    <button class="buzzer yes-btn" onclick="yesClicked()">YES 💖</button>
+    <button class="buzzer no-btn" onclick="noClicked()">NO 💔</button>
+  </div>
 
-    <p>You make my days softer, warmer, and happier 🌸</p>
-
-    <div class="buttons">
-      <button class="yes" onclick="showYes()">Yes 💖</button>
-      <button class="no" onclick="showNo()">No 🙄</button>
-    </div>
+  <!-- WRONG ANSWER -->
+  <div class="card hidden" id="wrongPage">
+    <img src="wrong.jpg" alt="Wrong Answer">
+    <h2>Error 404: ‘No’ not found 💔🙄</h2>
+    <button class="buzzer yes-btn" onclick="tryAgain()">Try Again 🔁</button>
   </div>
 
   <!-- YES PAGE -->
-  <div class="card hidden" id="yesCard">
-    <h1>Yay, you did great! 💕</h1>
-    <p>That’s the absolute right answer ❤️</p>
+  <div class="card hidden" id="yesPage">
+    <h2>Yay, you did great! That’s the absolute right answer ❤️</h2>
 
-    <img src="rosecat.jpg" alt="cute cat">
+    <div class="letter-box">
+      <img src="bouquet.jpg" alt="Cat with bouquet">
+      <button class="open-btn" onclick="openLetter()">Open the letter 💌</button>
+    </div>
 
-    <img src="letter.webp" alt="letter">
+    <div id="letterText" class="letter-text hidden">
+      <img src="letter.webp" alt="Letter" style="width:100%; border-radius:15px;">
 
-    <p>
-      First off all congrats n thanks for accepting to be my valentine
-      (you had no choice then just to say yes anyways 👹 buwahahaha).
-      Jokes apart, really thanks for being a part of my life.
-      Your presence in my life means a lot, thanks for choosing me over n over again
-      even after my dumb mistakes.
-      I pray to stay the rest of life with you like this.
-      I'm mesmerized by your beauty since the day we started dating,
-      and I still get butterflies when I see you.
-      Keep smiling n attacking me with your gorgeous beauty.
-      You're precious. ily. 💗
-    </p>
-  </div>
-
-  <!-- NO PAGE -->
-  <div class="card hidden" id="noCard">
-    <h1>Oops 😶</h1>
-
-    <img src="wrong.jpg" alt="wrong answer">
-
-    <p class="caption">Error 404: ‘No’ not found 💔🙄</p>
-
-    <button class="yes" onclick="goBack()">Try again 😌</button>
+      <p>
+        First of all, congrats n thanks for accepting to be my valentine
+        (you had no choice then just to say yes anyways 👹 buwahahaha).
+        Jokes apart, really thanks for being a part of my life.
+        Your presence in my life means a lot, thanks for choosing me over n over again
+        even after my dumb mistakes.
+        <br><br>
+        I pray to stay the rest of life with you like this.
+        I'm mesmerized by your beauty since the day we started dating,
+        and I still get butterflies when I see you.
+        <br><br>
+        Keep smiling n attacking me with your gorgeous beauty.
+        You're precious. ily. 💗
+      </p>
+    </div>
   </div>
 
   <script>
-    function showYes() {
-      document.getElementById("mainCard").classList.add("hidden");
-      document.getElementById("yesCard").classList.remove("hidden");
+    function yesClicked() {
+      page1.classList.add("hidden");
+      yesPage.classList.remove("hidden");
     }
 
-    function showNo() {
-      document.getElementById("mainCard").classList.add("hidden");
-      document.getElementById("noCard").classList.remove("hidden");
+    function noClicked() {
+      page1.classList.add("hidden");
+      wrongPage.classList.remove("hidden");
     }
 
-    function goBack() {
-      document.getElementById("noCard").classList.add("hidden");
-      document.getElementById("mainCard").classList.remove("hidden");
+    function tryAgain() {
+      wrongPage.classList.add("hidden");
+      page1.classList.remove("hidden");
+    }
+
+    function openLetter() {
+      document.getElementById("letterText").classList.remove("hidden");
     }
   </script>
 
