@@ -1,136 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Will You Be My Valentine 💘</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: "Comic Sans MS", cursive;
-      background: linear-gradient(#ffd6e8, #fff);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    .container {
-      background: white;
-      max-width: 420px;
-      width: 95%;
-      border-radius: 20px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-
-    img {
-      width: 100%;
-      border-radius: 15px;
-      margin-bottom: 15px;
-    }
-
-    h1 {
-      color: #ff4d6d;
-      margin-bottom: 15px;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    button {
-      width: 140px;
-      height: 70px;
-      font-size: 20px;
-      font-weight: bold;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      color: white;
-      box-shadow: 0 8px #b83250;
-      transition: all 0.1s ease;
-    }
-
-    button:active {
-      transform: translateY(6px);
-      box-shadow: 0 2px #b83250;
-    }
-
-    .yes {
-      background: #ff4d6d;
-    }
-
-    .no {
-      background: #6c757d;
-      box-shadow: 0 8px #444;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .caption {
-      font-size: 18px;
-      margin-top: 10px;
-      color: #444;
-    }
-  </style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine</title>
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:#ffd6e8;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:Arial;
+}
+.box{
+  background:white;
+  width:90%;
+  max-width:350px;
+  padding:20px;
+  border-radius:20px;
+  text-align:center;
+}
+img{width:100%;border-radius:15px;}
+button{
+  margin:10px;
+  padding:15px 25px;
+  font-size:18px;
+  border-radius:30px;
+  border:none;
+  background:#ff4d88;
+  color:white;
+}
+</style>
 </head>
-
 <body>
 
-  <div class="container">
-
-    <!-- PAGE 1 -->
-    <div id="page1">
-      <img src="rosecat.jpg" alt="Valentine Cat">
-      <h1>Will you be my Valentine? 💖</h1>
-      <div class="buttons">
-        <button class="yes" onclick="yesClicked()">YES 💘</button>
-        <button class="no" onclick="noClicked()">NO 💔</button>
-      </div>
-    </div>
-
-    <!-- YES PAGE -->
-    <div id="yesPage" class="hidden">
-      <img src="bouquet.jpg" alt="Bouquet Cat">
-      <h1>Yay, you did great! That’s the absolute right answer ❤️</h1>
-      <button class="yes" onclick="openLetter()">Open the letter 💌</button>
-
-      <div id="letterBox" class="hidden">
-        <img src="letter.webp" alt="Love Letter">
-      </div>
-    </div>
-
-    <!-- NO PAGE -->
-    <div id="noPage" class="hidden">
-      <img src="wrong.jpg" alt="Wrong Answer">
-      <div class="caption">Error 404: ‘No’ not found 💔🙄</div>
-    </div>
-
-  </div>
-
-  <script>
-    function yesClicked() {
-      document.getElementById("page1").classList.add("hidden");
-      document.getElementById("yesPage").classList.remove("hidden");
-    }
-
-    function noClicked() {
-      document.getElementById("page1").classList.add("hidden");
-      document.getElementById("noPage").classList.remove("hidden");
-    }
-
-    function openLetter() {
-      document.getElementById("letterBox").classList.remove("hidden");
-    }
-  </script>
+<div class="box">
+  <h2>Will you be my Valentine? 💖</h2>
+  <img src="bouquet.jpg">
+  <br>
+  <a href="letter.html">
+    <button>YES ❤️</button>
+  </a>
+</div>
 
 </body>
 </html>
