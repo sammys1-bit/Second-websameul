@@ -2,44 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Will You Be My Valentine 💖</title>
+  <title>Will You Be My Valentine 💘</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
       margin: 0;
-      font-family: "Poppins", Arial, sans-serif;
-      background: linear-gradient(135deg, #ffd6e8, #f3e5ff);
-      min-height: 100vh;
+      font-family: "Comic Sans MS", cursive;
+      background: linear-gradient(#ffd6e8, #fff);
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      min-height: 100vh;
     }
 
-    .card {
-      background: #fff;
-      width: 100%;
+    .container {
+      background: white;
       max-width: 420px;
-      border-radius: 25px;
+      width: 95%;
+      border-radius: 20px;
       padding: 20px;
       text-align: center;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-    }
-
-    h2 {
-      color: #d63384;
-      margin-bottom: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
     img {
       width: 100%;
-      border-radius: 20px;
-      margin: 15px 0;
+      border-radius: 15px;
+      margin-bottom: 15px;
     }
 
-    /* BUZZER BUTTONS */
-    .buzzer {
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 15px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    button {
       width: 140px;
       height: 70px;
       font-size: 20px;
@@ -47,55 +52,32 @@
       border: none;
       border-radius: 50px;
       cursor: pointer;
-      margin: 12px;
       color: white;
-      box-shadow: 0 8px rgba(0,0,0,0.3);
+      box-shadow: 0 8px #b83250;
       transition: all 0.1s ease;
     }
 
-    .buzzer:active {
+    button:active {
       transform: translateY(6px);
-      box-shadow: 0 2px rgba(0,0,0,0.3);
+      box-shadow: 0 2px #b83250;
     }
 
-    .yes-btn {
+    .yes {
       background: #ff4d6d;
     }
 
-    .no-btn {
+    .no {
       background: #6c757d;
+      box-shadow: 0 8px #444;
     }
 
     .hidden {
       display: none;
     }
 
-    .letter-box {
-      position: relative;
-      display: inline-block;
-      width: 100%;
-    }
-
-    .open-btn {
-      position: absolute;
-      bottom: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #ff7aa2;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .letter-text {
-      background: #fff0f5;
-      border-radius: 20px;
-      padding: 20px;
-      margin-top: 20px;
-      font-size: 14px;
+    .caption {
+      font-size: 18px;
+      margin-top: 10px;
       color: #444;
     }
   </style>
@@ -103,69 +85,50 @@
 
 <body>
 
-  <!-- PAGE 1 -->
-  <div class="card" id="page1">
-    <h2>Will you be my Valentine? 💘</h2>
-    <img src="rosecat.jpg" alt="Cat with rose">
+  <div class="container">
 
-    <button class="buzzer yes-btn" onclick="yesClicked()">YES 💖</button>
-    <button class="buzzer no-btn" onclick="noClicked()">NO 💔</button>
-  </div>
-
-  <!-- WRONG ANSWER -->
-  <div class="card hidden" id="wrongPage">
-    <img src="wrong.jpg" alt="Wrong Answer">
-    <h2>Error 404: ‘No’ not found 💔🙄</h2>
-    <button class="buzzer yes-btn" onclick="tryAgain()">Try Again 🔁</button>
-  </div>
-
-  <!-- YES PAGE -->
-  <div class="card hidden" id="yesPage">
-    <h2>Yay, you did great! That’s the absolute right answer ❤️</h2>
-
-    <div class="letter-box">
-      <img src="bouquet.jpg" alt="Cat with bouquet">
-      <button class="open-btn" onclick="openLetter()">Open the letter 💌</button>
+    <!-- PAGE 1 -->
+    <div id="page1">
+      <img src="rosecat.jpg" alt="Valentine Cat">
+      <h1>Will you be my Valentine? 💖</h1>
+      <div class="buttons">
+        <button class="yes" onclick="yesClicked()">YES 💘</button>
+        <button class="no" onclick="noClicked()">NO 💔</button>
+      </div>
     </div>
 
-    <div id="letterText" class="letter-text hidden">
-      <img src="letter.webp" alt="Letter" style="width:100%; border-radius:15px;">
+    <!-- YES PAGE -->
+    <div id="yesPage" class="hidden">
+      <img src="bouquet.jpg" alt="Bouquet Cat">
+      <h1>Yay, you did great! That’s the absolute right answer ❤️</h1>
+      <button class="yes" onclick="openLetter()">Open the letter 💌</button>
 
-      <p>
-        First of all, congrats n thanks for accepting to be my valentine
-        (you had no choice then just to say yes anyways 👹 buwahahaha).
-        Jokes apart, really thanks for being a part of my life.
-        Your presence in my life means a lot, thanks for choosing me over n over again
-        even after my dumb mistakes.
-        <br><br>
-        I pray to stay the rest of life with you like this.
-        I'm mesmerized by your beauty since the day we started dating,
-        and I still get butterflies when I see you.
-        <br><br>
-        Keep smiling n attacking me with your gorgeous beauty.
-        You're precious. ily. 💗
-      </p>
+      <div id="letterBox" class="hidden">
+        <img src="letter.webp" alt="Love Letter">
+      </div>
     </div>
+
+    <!-- NO PAGE -->
+    <div id="noPage" class="hidden">
+      <img src="wrong.jpg" alt="Wrong Answer">
+      <div class="caption">Error 404: ‘No’ not found 💔🙄</div>
+    </div>
+
   </div>
 
   <script>
     function yesClicked() {
-      page1.classList.add("hidden");
-      yesPage.classList.remove("hidden");
+      document.getElementById("page1").classList.add("hidden");
+      document.getElementById("yesPage").classList.remove("hidden");
     }
 
     function noClicked() {
-      page1.classList.add("hidden");
-      wrongPage.classList.remove("hidden");
-    }
-
-    function tryAgain() {
-      wrongPage.classList.add("hidden");
-      page1.classList.remove("hidden");
+      document.getElementById("page1").classList.add("hidden");
+      document.getElementById("noPage").classList.remove("hidden");
     }
 
     function openLetter() {
-      document.getElementById("letterText").classList.remove("hidden");
+      document.getElementById("letterBox").classList.remove("hidden");
     }
   </script>
 
