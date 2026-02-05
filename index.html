@@ -3,6 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Valentine</title>
+
 <style>
 body{
   margin:0;
@@ -13,36 +14,77 @@ body{
   align-items:center;
   font-family:Arial;
 }
-.box{
+.card{
   background:white;
   width:90%;
-  max-width:350px;
+  max-width:360px;
   padding:20px;
   border-radius:20px;
   text-align:center;
 }
-img{width:100%;border-radius:15px;}
+img{
+  width:100%;
+  border-radius:15px;
+}
 button{
   margin:10px;
   padding:15px 25px;
   font-size:18px;
   border-radius:30px;
   border:none;
+  cursor:pointer;
+}
+.yes{
   background:#ff4d88;
+  color:white;
+}
+.no{
+  background:#555;
   color:white;
 }
 </style>
 </head>
+
 <body>
 
-<div class="box">
+<div class="card" id="page1">
   <h2>Will you be my Valentine? 💖</h2>
+  <img src="rosecat.jpg">
+  <br>
+  <button class="yes" onclick="showYes()">YES ❤️</button>
+  <button class="no" onclick="showNo()">NO 💔</button>
+</div>
+
+<div class="card" id="yesPage" style="display:none;">
+  <h2>Yay, you did great! That’s the absolute right answer ❤️</h2>
   <img src="bouquet.jpg">
   <br>
   <a href="letter.html">
-    <button>YES ❤️</button>
+    <button class="yes">Open the letter 💌</button>
   </a>
 </div>
+
+<div class="card" id="noPage" style="display:none;">
+  <h2>Error 404: ‘No’ not found 💔🙄</h2>
+  <img src="wrong.jpg">
+  <br>
+  <button class="yes" onclick="goBack()">Try again</button>
+</div>
+
+<script>
+function showYes(){
+  document.getElementById("page1").style.display="none";
+  document.getElementById("yesPage").style.display="block";
+}
+function showNo(){
+  document.getElementById("page1").style.display="none";
+  document.getElementById("noPage").style.display="block";
+}
+function goBack(){
+  document.getElementById("noPage").style.display="none";
+  document.getElementById("page1").style.display="block";
+}
+</script>
 
 </body>
 </html>
