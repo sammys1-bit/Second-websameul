@@ -1,3 +1,147 @@
 <!DOCTYPE html>
-<html>
-<head>    
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will You Be My Valentine 💗</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Comic Sans MS", "Poppins", cursive;
+      background: linear-gradient(135deg, #ffd6e8, #f3e5ff, #ffffff);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: #ffffff;
+      width: 95%;
+      max-width: 420px;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    h1 {
+      color: #d63384;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      font-size: 15px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 15px;
+      margin: 10px 0;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 8px;
+    }
+
+    .yes {
+      background: #ff5fa2;
+      color: white;
+    }
+
+    .no {
+      background: #ccc;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .caption {
+      font-size: 16px;
+      margin-top: 10px;
+      color: #c9184a;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MAIN CARD -->
+  <div class="card" id="mainCard">
+    <h1>Will you be my Valentine? 💘</h1>
+
+    <img src="bouquet.jpg" alt="bouquet">
+
+    <p>You make my days softer, warmer, and happier 🌸</p>
+
+    <div class="buttons">
+      <button class="yes" onclick="showYes()">Yes 💖</button>
+      <button class="no" onclick="showNo()">No 🙄</button>
+    </div>
+  </div>
+
+  <!-- YES PAGE -->
+  <div class="card hidden" id="yesCard">
+    <h1>Yay, you did great! 💕</h1>
+    <p>That’s the absolute right answer ❤️</p>
+
+    <img src="rosecat.jpg" alt="cute cat">
+
+    <img src="letter.webp" alt="letter">
+
+    <p>
+      First off all congrats n thanks for accepting to be my valentine
+      (you had no choice then just to say yes anyways 👹 buwahahaha).
+      Jokes apart, really thanks for being a part of my life.
+      Your presence in my life means a lot, thanks for choosing me over n over again
+      even after my dumb mistakes.
+      I pray to stay the rest of life with you like this.
+      I'm mesmerized by your beauty since the day we started dating,
+      and I still get butterflies when I see you.
+      Keep smiling n attacking me with your gorgeous beauty.
+      You're precious. ily. 💗
+    </p>
+  </div>
+
+  <!-- NO PAGE -->
+  <div class="card hidden" id="noCard">
+    <h1>Oops 😶</h1>
+
+    <img src="wrong.jpg" alt="wrong answer">
+
+    <p class="caption">Error 404: ‘No’ not found 💔🙄</p>
+
+    <button class="yes" onclick="goBack()">Try again 😌</button>
+  </div>
+
+  <script>
+    function showYes() {
+      document.getElementById("mainCard").classList.add("hidden");
+      document.getElementById("yesCard").classList.remove("hidden");
+    }
+
+    function showNo() {
+      document.getElementById("mainCard").classList.add("hidden");
+      document.getElementById("noCard").classList.remove("hidden");
+    }
+
+    function goBack() {
+      document.getElementById("noCard").classList.add("hidden");
+      document.getElementById("mainCard").classList.remove("hidden");
+    }
+  </script>
+
+</body>
+</html>
